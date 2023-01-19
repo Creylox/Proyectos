@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Juego de adivinanza</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		input {
+			margin-top: 20px;
+			font-size: 20px;
+			padding: 5px;
+		}
+		button {
+			margin-top: 20px;
+			font-size: 20px;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Adivina el número</h1>
+	<p>Tienes que adivinar un número entre 1 y 100</p>
+	<input type="text" id="guess">
+	<button onclick="checkGuess()">Adivinar</button>
+	<p id="result"></p>
+	<script>
+		var correctNumber = Math.floor(Math.random() * 100) + 1;
+		var result = document.getElementById("result");
+		function checkGuess() {
+			var guess = document.getElementById("guess").value;
+			if (guess == correctNumber) {
+				result.innerHTML = "¡Correcto! El número era " + correctNumber;
+			} else if (guess > correctNumber) {
+				result.innerHTML = "Tu número es demasiado alto";
+			} else {
+				result.innerHTML = "Tu número es demasiado bajo";
+			}
+		}
+	</script>
+</body>
+</html>
