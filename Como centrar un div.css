@@ -1,0 +1,245 @@
+#contenedorPadre {
+    width: 400px;
+    height: 400px;
+    background-color: #f55353;
+}
+
+#contenedorHijo {
+    width: 100px;
+    height: 100px;
+    background-color: #feb139;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* Forma N°1: Cómo usar position: relative, absolute y los valores de desplazamiento top, left.
+
+
+La propiedad position en CSS establece cómo se posiciona el elemento en la página. El valor por defecto de la propiedad position es static. Los otros valores que toma la propiedad position son relative, absolute, fixed y sticky.
+
+Ahora bien, cuando damos un position: absolute a un elemento del DOM, éste se vuelve absoluto con respecto a toda la página. Esto sería útil si quisiéramos centrar el div con respecto a toda la página.
+
+Por otro lado, al poner el elemento padre en position: relative, hace que el elemento hijo (con position: absolute) sea absoluto, relativo al elemento padre y no a toda la página.
+
+En el ejemplo anterior hacemos precisamente eso. Le damos al elemento padre una position: relative y al hijo una position: absolute.
+
+Junto con la propiedad position, podemos especificar otras cuatro propiedades: top, right, bottom y left, que determinan la posición final del elemento.
+
+La posición top y bottom especifican la posición vertical del elemento, mientras que left y right especifican la posición horizontal.  */
+
+
+/* #contenedorPadre {
+    position: relative;
+}
+
+#contenedorHijo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°2: Cómo usar position: relative, absolute, valores de desplazamiento top, left, right, bottom y margin: auto.
+
+
+Continuando con nuestro conocimiento de las posiciones del anterior punto 1, aquí utilizamos la propiedad margin de CSS. margin: auto permite al navegador seleccionar un margen adecuado para el elemento hijo.
+
+En la mayoría de los casos permite que el elemento hijo tome su ancho especificado y el navegador distribuye el espacio restante de forma equitativa entre el par de márgenes izquierdo y derecho o el par de márgenes superior e inferior o entre ambos pares.
+
+Si mencionamos sólo top: 0, bottom: 0 y margin: auto, centra el elemento hijo verticalmente.
+
+Del mismo modo, si mencionamos sólo left: 0, right: 0 y margin: auto, entonces se centrará el elemento hijo horizontalmente.
+
+Y si se mencionan todas las propiedades como se muestra en el bloque de código anterior, entonces se obtiene un div perfectamente centrado tanto horizontal como verticalmente.  */
+
+
+/* #contenedorPadre {
+    position: relative;
+}
+
+#contenedorHijo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°3: Cómo usar Flexbox, justify-content y align-item.
+
+
+Los dos métodos anteriores se basan más en un método clásico de alineación de elementos en la página. Los enfoques modernos hacen uso de las propiedades Flexbox (para el modelado de diseño en una dirección) y Grid layout (para el modelado de diseño bidimensional más complejo).
+
+Veamos el enfoque Flexbox:
+
+Flexbox no es una sola propiedad, sino que es un módulo que comprende un conjunto de propiedades. Algunas de estas propiedades son para el contenedor (es decir, el contenedor padre) y otras para los elementos hijos dentro de él.
+
+Ahora no es posible cubrir todas las propiedades en este artículo. Más bien vamos a ver algunas de las propiedades que vamos a utilizar.
+
+Como se mencionó anteriormente, hay dos entidades diferentes en el modelo Flexbox, el contenedor padre y el elemento hijo.
+
+La propiedad display: flex define un contenedor como un contenedor flex. flex-direction es otra propiedad del contenedor padre que puede tomar cualquiera de los siguientes valores: row (valor por defecto), row-reverse, column y column-reverse.
+
+Cuando se trabaja con Flexbox, necesitamos tener en cuenta dos ejes diferentes, que son el eje principal y el eje transversal.
+
+Para los casos en los que flex-dirección es row o row-reverse, el eje horizontal es el eje principal y el eje vertical es el eje transversal.
+
+Del mismo modo, cuando flex-direction es column o column-reverse, entonces el eje vertical es el eje principal y el eje horizontal es el eje transversal.
+
+La propiedad justify-content del contenedor padre define la alineación de sus hijos a lo largo del eje principal. Así, justify-content: center establece la alineación de todos sus elementos hijos en el centro con respecto al eje principal.
+
+Del mismo modo, la propiedad align-items del contenedor padre define la alineación de sus hijos a lo largo del eje transversal. Así, align-items: center establece la alineación de todos sus elementos hijos en el centro con respecto al eje transversal.
+
+Así, el bloque de código siguiente alineará perfectamente nuestro elemento hijo en el centro del elemento padre tanto vertical como horizontalmente.
+
+En este método, no necesitamos especificar nada explícitamente para el elemento hijo. display: flex, justify-content y align-items manejan todo desde el componente padre. */
+
+
+#contenedorPadre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°4: Cómo usar Flexbox, justify-content y align-self.
+
+
+Este método es sólo una alternativa al método anterior y es bastante similar a él.
+
+Pero en lugar de usar la propiedad align-items (en la propiedad del contenedor padre), que establece la alineación para todos los elementos hijos con respecto al eje transversal, usamos align-self (en los elementos hijos) que establece la alineación de los elementos flex individuales en el eje transversal. */
+
+
+/* #contenedorPadre {
+    display: flex;
+    justify-content: center;
+}
+
+#contenedorHijo {
+    align-self: center;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°5: Cómo usar Flexbox y margin: auto.
+
+
+Flexbox nos da una capacidad de alineación y distribución del espacio muy potente. Además, como se mencionó anteriormente, margin: auto permite al navegador seleccionar un margen adecuado para el elemento hijo.
+
+En la mayoría de los casos permite que el elemento hijo tome su ancho especificado, y el navegador distribuye el espacio restante de forma equitativa entre el par de márgenes izquierdo y derecho o el par de márgenes superior e inferior o entre ambos pares.
+
+Esto significa que establecer el contenedor padre como flex y dar al hijo un margin: auto permite al navegador distribuir uniformemente el espacio sobrante a lo largo de las direcciones vertical y horizontal. */
+
+
+/* #contenedorPadre {
+    display: flex;
+}
+
+#contenedorHijo {
+    margin: auto;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°6: Cómo usar Grid, justify-content y align-items.
+
+
+CSS Grid o simplemente Grid se utiliza para el modelado de diseño en dos dimensiones en comparación con Flexbox que se utiliza para el modelado unidimensional.
+
+De forma similar a Flexbox, tenemos el concepto de contenedor de cuadrícula o contenedor padre y elementos de cuadrícula o elementos hijos.
+
+Como CSS Grid es un tema enorme en sí mismo, no está en el alcance de este artículo discutir sobre cada una de las propiedades. Así que vamos a discutir las propiedades que estamos utilizando en este artículo.
+
+display: grid hace que un elemento se convierta en un contenedor de cuadrícula.
+
+justify-items y align-items alinean los elementos dentro de la cuadrícula a lo largo del eje de la línea (fila) y del bloque (columna) respectivamente.
+
+Por otro lado, si el tamaño total de la cuadrícula es menor que el contenedor (lo que puede ocurrir si todos los elementos de la rejilla están dimensionados con unidades no flexibles como px), entonces en ese caso podemos controlar la alineación de la cuadrícula dentro del contenedor utilizando justify-content y align-content.
+
+justify-content y align-content alinean la cuadrícula a lo largo del eje de la línea (fila) y del eje del bloque (columna) respectivamente.
+
+En nuestro caso sólo hay una cuadrícula y un solo elemento hijo dentro de ella, por lo que podemos utilizar justify-content o justify-items así como align-content o align-items indistintamente y obtener el mismo resultado. */
+
+
+/* #contenedorPadre {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°7: Cómo usar Grid y place-items.
+
+
+Puedes usar place-items para establecer las propiedades align-items y justify-items en la misma declaración. Del mismo modo, place-content establece tanto justify-content como align-content en la misma declaración.
+
+Como se ha mencionado anteriormente, en este caso de uso podemos usar justify-content o justify-items así como align-content o align-items indistintamente. Del mismo modo, también podemos utilizar indistintamente place-items o place-content y obtener el mismo resultado (específicamente para este caso de uso. Para cualquier otro caso de uso hay que analizar qué propiedad se debe utilizar). */
+
+
+/* #contenedorPadre {
+    display: grid;
+    place-items: center;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°8: Cómo usar Grid, align-self y justify-self.
+
+
+Al igual que Flexbox, Grid también soporta la alineación individual de los elementos de la rejilla utilizando las propiedades align-self y justify-self (propiedades que deben ser especificadas en el elemento hijo).
+
+justify-self alinea los elementos de la cuadrícula dentro de una celda a lo largo del eje de la línea (fila) mientras que align-self alinea los elementos de la cuadrícula dentro de la celda a lo largo del eje de la columna. */
+
+
+/* #contenedorPadre {
+    display: grid;
+}
+
+#contenedorHijo {
+    align-self: center;
+    justify-self: center;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°9: Cómo usar Grid y place-self. 
+
+
+La propiedad place-self establece las propiedades justify-self y align-self en una sola declaración. Así que asignar un elemento hijo a place-self: center centra al hijo tanto vertical como horizontalmente.  */
+
+
+/* #contenedorPadre {
+    display: grid;
+}
+
+#contenedorHijo {
+    place-self: center;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Forma N°10: Cómo usar Grid y margin: auto.
+
+
+De forma similar a Flexbox, Grid también nos ofrece potentes capacidades de alineación y distribución del espacio.
+
+Como vimos en el punto 5, podemos hacer un proceso similar con Grid en lugar de usar Flexbox y obtendremos el mismo resultado si asignamos margin: auto al elemento hijo. */
+
+
+/* #contenedorPadre {
+    display: grid;
+}
+
+#contenedorHijo {
+    margin: auto;
+} */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
